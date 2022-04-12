@@ -11,23 +11,22 @@ clear all, close all
 
 % Constructing an Example
 % parameters for simulation data
-srate=1000;
+srate = 1000;
 data_length = 10000; %( i.e., 10 sec)
-t=1:1:data_length;
-tVec =1/srate:1:data_length;
+t = 1:1:data_length;
 
 % parameter for the coupling strength
 nonmodulatedamplitude = .3; % increase this parameters to get less modulation; you'll see that this is reflected in the wMI value
 
 % lower frex (i.e., nesting phase frex) and higher frex (i.e., nested amplitude frex) 
 Phase_Modulating_Freq = 5;
-Amp_Modulated_Freq     = 40;
+Amp_Modulated_Freq    = 40;
 
 % creation simulation data based on Tort et al. (2010)
-lfp=(0.2*(sin(2*pi*t*Phase_Modulating_Freq/srate)+1)+nonmodulatedamplitude*0.1).*sin(2*pi*t*Amp_Modulated_Freq/srate)+sin(2*pi*t*Phase_Modulating_Freq/srate);
+lfp = (0.2*(sin(2*pi*t*Phase_Modulating_Freq/srate)+1)+nonmodulatedamplitude*0.1).*sin(2*pi*t*Amp_Modulated_Freq/srate)+sin(2*pi*t*Phase_Modulating_Freq/srate);
 
 % add random noise
-lfp=lfp+0.3*randn(1,length(lfp));
+lfp = lfp+0.3*randn(1,length(lfp));
 
 
 % Plot for check
@@ -40,10 +39,10 @@ title('Simulation data')
 
 %% Define the range of amplitude and phase frequencies that you want to analyze 
 PhaseFreqVector =   2 :1:15;
-AmpFreqVector    = 10 :5:100;
+AmpFreqVector   = 10 :5:100;
 
 PhaseFreq_BandWidth = 2;
-AmpFreq_BandWidth    = 5;
+AmpFreq_BandWidth   = 5;
 
 
 %% Create phase bins for storing amplitude values in each phase position
@@ -89,11 +88,11 @@ for phase_idx = 1 : length(PhaseFreqVector)
      % define the target phase frequency bands
      Pf1 = PhaseFreqVector(phase_idx);  Pf2 = Pf1+ PhaseFreq_BandWidth;
     
-     counter2=0;
+     counter2 = 0;
    
     for amp_idx = 1 : length(AmpFreqVector)
          
-        counter2=counter2+1;
+        counter2 = counter2+1;
     
         % define the target amplitude frequency bands 
         Af1 = AmpFreqVector(amp_idx); Af2 = Af1+AmpFreq_BandWidth;
