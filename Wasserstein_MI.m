@@ -60,8 +60,6 @@ function [wMI, optpath, MeanAmp] = Wasserstein_MI(phase, amplitude, position)
             %  L1 wasserstein distance
             c((bin1_idx-1)*nbin + bin2_idx) = min(abs(bin1_idx - bin2_idx), nbin-abs(bin1_idx- bin2_idx));
             
-            % L2 wasserstein distance
-            % c((bin1_idx-1)*nbin + bin2_idx) = min(abs(bin1_idx- bin2_idx), nbin-abs(bin1_idx - bin2_idx))^2;
         end
     end
     
