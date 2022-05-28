@@ -97,7 +97,7 @@ for phase_idx = 1 : length(PhaseFreqVector)
         % define the target amplitude frequency bands 
         Af1 = AmpFreqVector(amp_idx); Af2 = Af1+AmpFreq_BandWidth;
         
-        %Calucaltion the wMI via L1wasserstein_MI_test 
+        %Calculation the wMI via Wasserstein_MI 
         [wMI, optpath, MeanAmp] = Wasserstein_MI(PhaseFreqTransformed(phase_idx, :), AmpFreqTransformed(amp_idx, :), position);
          Comodulogram(counter1, counter2) = wMI;
          
